@@ -1,0 +1,219 @@
+<brainstorming>
+Analizando el proyecto, necesito crear un plan para desarrollar un backend de API REST para un sistema inmobiliario usando .NET 8, C# y MongoDB. El proyecto sigue Clean Architecture con 4 capas y requiere funcionalidades específicas para manejo de propiedades.
+
+Elementos clave a considerar:
+1. Clean Architecture: Domain, Application, Infrastructure, API
+2. MongoDB con 5 colecciones: Owners, Properties, PropertyImages, PropertyTraces, Users
+3. API REST con endpoints específicos para propiedades
+4. DTOs con campos específicos requeridos
+5. Filtrado avanzado y paginación
+6. Manejo de imágenes (solo una por propiedad)
+7. Documentación con Swagger
+8. Pruebas unitarias con NUnit
+9. Mejores prácticas: AutoMapper, validaciones, inyección de dependencias, logging
+
+Orden lógico de implementación:
+1. Estructura del proyecto y configuraciones base
+2. Capa Domain (entidades, interfaces)
+3. Capa Application (DTOs, servicios, AutoMapper)
+4. Capa Infrastructure (MongoDB, repositorios)
+5. Capa API (controllers, middleware)
+6. Configuración de Swagger y logging
+7. Pruebas unitarias
+8. Validaciones y manejo de errores
+
+Cada paso debe ser atómico y manejable, enfocándose en aspectos específicos sin añadir complejidad innecesaria.
+</brainstorming>
+
+# Plan de Implementación
+
+## Estructura Base del Proyecto
+- [ ] Paso 1: Crear estructura de Clean Architecture y configuración inicial
+  - **Tarea**: Establecer la estructura de carpetas para Clean Architecture (4 capas), configurar el proyecto principal, agregar dependencias NuGet esenciales y configurar archivos de configuración base
+  - **Archivos**:
+    - `Million_Fullstack.sln`: Archivo de solución
+    - `src/Million_Fullstack.Domain/Million_Fullstack.Domain.csproj`: Proyecto de dominio
+    - `src/Million_Fullstack.Application/Million_Fullstack.Application.csproj`: Proyecto de aplicación
+    - `src/Million_Fullstack.Infrastructure/Million_Fullstack.Infrastructure.csproj`: Proyecto de infraestructura
+    - `src/Million_Fullstack.API/Million_Fullstack.API.csproj`: Proyecto API
+    - `src/Million_Fullstack.API/Program.cs`: Configuración inicial de la aplicación
+    - `src/Million_Fullstack.API/appsettings.json`: Configuración de la aplicación
+    - `src/Million_Fullstack.API/appsettings.Development.json`: Configuración de desarrollo
+  - **Dependencias de Paso**: Ninguna
+  - **Instrucciones de Usuario**: Instalar .NET 8 SDK si no está disponible
+
+## Capa de Dominio
+- [ ] Paso 2: Crear entidades de dominio
+  - **Tarea**: Implementar todas las entidades del dominio (Owner, Property, PropertyImage, PropertyTrace, User) con sus propiedades y relaciones según el esquema de MongoDB
+  - **Archivos**:
+    - `src/Million_Fullstack.Domain/Entities/Owner.cs`: Entidad propietario
+    - `src/Million_Fullstack.Domain/Entities/Property.cs`: Entidad propiedad
+    - `src/Million_Fullstack.Domain/Entities/PropertyImage.cs`: Entidad imagen de propiedad
+    - `src/Million_Fullstack.Domain/Entities/PropertyTrace.cs`: Entidad historial de transacciones
+    - `src/Million_Fullstack.Domain/Entities/User.cs`: Entidad usuario
+    - `src/Million_Fullstack.Domain/Entities/BaseEntity.cs`: Entidad base común
+  - **Dependencias de Paso**: Paso 1
+  - **Instrucciones de Usuario**: Ninguna
+
+- [ ] Paso 3: Crear interfaces de repositorio
+  - **Tarea**: Definir interfaces de repositorio para cada entidad siguiendo el patrón Repository, incluyendo métodos específicos para filtrado y paginación
+  - **Archivos**:
+    - `src/Million_Fullstack.Domain/Interfaces/IOwnerRepository.cs`: Interface repositorio propietario
+    - `src/Million_Fullstack.Domain/Interfaces/IPropertyRepository.cs`: Interface repositorio propiedad
+    - `src/Million_Fullstack.Domain/Interfaces/IPropertyImageRepository.cs`: Interface repositorio imagen
+    - `src/Million_Fullstack.Domain/Interfaces/IPropertyTraceRepository.cs`: Interface repositorio historial
+    - `src/Million_Fullstack.Domain/Interfaces/IUserRepository.cs`: Interface repositorio usuario
+    - `src/Million_Fullstack.Domain/Interfaces/IBaseRepository.cs`: Interface base común
+  - **Dependencias de Paso**: Paso 2
+  - **Instrucciones de Usuario**: Ninguna
+
+## Capa de Aplicación
+- [ ] Paso 4: Crear DTOs y modelos de filtrado
+  - **Tarea**: Implementar todos los DTOs requeridos (PropertyDto, OwnerDto, etc.), clases de filtrado y paginación según las especificaciones
+  - **Archivos**:
+    - `src/Million_Fullstack.Application/DTOs/PropertyDto.cs`: DTO propiedad
+    - `src/Million_Fullstack.Application/DTOs/OwnerDto.cs`: DTO propietario
+    - `src/Million_Fullstack.Application/DTOs/PropertyImageDto.cs`: DTO imagen
+    - `src/Million_Fullstack.Application/DTOs/PropertyTraceDto.cs`: DTO historial
+    - `src/Million_Fullstack.Application/DTOs/UserDto.cs`: DTO usuario
+    - `src/Million_Fullstack.Application/Models/PropertyFilterModel.cs`: Modelo de filtrado
+    - `src/Million_Fullstack.Application/Models/PagedResultModel.cs`: Modelo de paginación
+    - `src/Million_Fullstack.Application/Models/UpdatePriceModel.cs`: Modelo actualización precio
+  - **Dependencias de Paso**: Paso 2
+  - **Instrucciones de Usuario**: Ninguna
+
+- [ ] Paso 5: Configurar AutoMapper
+  - **Tarea**: Crear perfiles de AutoMapper para mapear entre entidades y DTOs, incluyendo configuraciones específicas para relaciones complejas
+  - **Archivos**:
+    - `src/Million_Fullstack.Application/Mappings/PropertyMappingProfile.cs`: Perfil mapeo propiedades
+    - `src/Million_Fullstack.Application/Mappings/OwnerMappingProfile.cs`: Perfil mapeo propietarios
+    - `src/Million_Fullstack.Application/Mappings/PropertyImageMappingProfile.cs`: Perfil mapeo imágenes
+    - `src/Million_Fullstack.Application/Mappings/PropertyTraceMappingProfile.cs`: Perfil mapeo historial
+    - `src/Million_Fullstack.Application/Mappings/UserMappingProfile.cs`: Perfil mapeo usuarios
+  - **Dependencias de Paso**: Paso 4
+  - **Instrucciones de Usuario**: Ninguna
+
+- [ ] Paso 6: Crear servicios de aplicación
+  - **Tarea**: Implementar servicios de aplicación con toda la lógica de negocio para propiedades, incluyendo filtrado, paginación y operaciones CRUD
+  - **Archivos**:
+    - `src/Million_Fullstack.Application/Services/PropertyService.cs`: Servicio propiedades
+    - `src/Million_Fullstack.Application/Services/OwnerService.cs`: Servicio propietarios
+    - `src/Million_Fullstack.Application/Services/PropertyImageService.cs`: Servicio imágenes
+    - `src/Million_Fullstack.Application/Interfaces/IPropertyService.cs`: Interface servicio propiedades
+    - `src/Million_Fullstack.Application/Interfaces/IOwnerService.cs`: Interface servicio propietarios
+    - `src/Million_Fullstack.Application/Interfaces/IPropertyImageService.cs`: Interface servicio imágenes
+  - **Dependencias de Paso**: Paso 5
+  - **Instrucciones de Usuario**: Ninguna
+
+## Capa de Infraestructura
+- [ ] Paso 7: Configurar MongoDB y contexto de base de datos
+  - **Tarea**: Implementar configuración de MongoDB, contexto de base de datos y configuraciones de colecciones
+  - **Archivos**:
+    - `src/Million_Fullstack.Infrastructure/Data/MongoDbContext.cs`: Contexto MongoDB
+    - `src/Million_Fullstack.Infrastructure/Data/MongoDbSettings.cs`: Configuración MongoDB
+    - `src/Million_Fullstack.Infrastructure/Configurations/PropertyConfiguration.cs`: Configuración colección propiedades
+    - `src/Million_Fullstack.Infrastructure/Configurations/OwnerConfiguration.cs`: Configuración colección propietarios
+    - `src/Million_Fullstack.Infrastructure/Configurations/PropertyImageConfiguration.cs`: Configuración colección imágenes
+    - `src/Million_Fullstack.Infrastructure/Configurations/PropertyTraceConfiguration.cs`: Configuración colección historial
+    - `src/Million_Fullstack.Infrastructure/Configurations/UserConfiguration.cs`: Configuración colección usuarios
+  - **Dependencias de Paso**: Paso 3
+  - **Instrucciones de Usuario**: Configurar cadena de conexión de MongoDB en appsettings.json
+
+- [ ] Paso 8: Implementar repositorios
+  - **Tarea**: Crear implementaciones concretas de todos los repositorios con operaciones optimizadas de MongoDB, incluyendo consultas con filtros complejos
+  - **Archivos**:
+    - `src/Million_Fullstack.Infrastructure/Repositories/BaseRepository.cs`: Repositorio base
+    - `src/Million_Fullstack.Infrastructure/Repositories/PropertyRepository.cs`: Repositorio propiedades
+    - `src/Million_Fullstack.Infrastructure/Repositories/OwnerRepository.cs`: Repositorio propietarios
+    - `src/Million_Fullstack.Infrastructure/Repositories/PropertyImageRepository.cs`: Repositorio imágenes
+    - `src/Million_Fullstack.Infrastructure/Repositories/PropertyTraceRepository.cs`: Repositorio historial
+    - `src/Million_Fullstack.Infrastructure/Repositories/UserRepository.cs`: Repositorio usuarios
+  - **Dependencias de Paso**: Paso 7
+  - **Instrucciones de Usuario**: Ninguna
+
+## Capa API
+- [ ] Paso 9: Crear controladores de API
+  - **Tarea**: Implementar controladores REST API con todos los endpoints requeridos, incluyendo validaciones y manejo de respuestas HTTP apropiadas
+  - **Archivos**:
+    - `src/Million_Fullstack.API/Controllers/PropertiesController.cs`: Controlador propiedades
+    - `src/Million_Fullstack.API/Controllers/OwnersController.cs`: Controlador propietarios
+    - `src/Million_Fullstack.API/Controllers/BaseApiController.cs`: Controlador base
+  - **Dependencias de Paso**: Paso 6
+  - **Instrucciones de Usuario**: Ninguna
+
+- [ ] Paso 10: Configurar inyección de dependencias y servicios
+  - **Tarea**: Configurar registro de dependencias en Program.cs, incluyendo servicios, repositorios, AutoMapper y MongoDB
+  - **Archivos**:
+    - `src/Million_Fullstack.API/Program.cs`: Actualizar configuración de dependencias
+    - `src/Million_Fullstack.API/Extensions/ServiceCollectionExtensions.cs`: Extensiones para registro de servicios
+    - `src/Million_Fullstack.Infrastructure/DependencyInjection.cs`: Registro dependencias infraestructura
+    - `src/Million_Fullstack.Application/DependencyInjection.cs`: Registro dependencias aplicación
+  - **Dependencias de Paso**: Paso 9
+  - **Instrucciones de Usuario**: Ninguna
+
+## Configuración y Documentación
+- [ ] Paso 11: Configurar Swagger y documentación API
+  - **Tarea**: Implementar configuración completa de Swagger/OpenAPI con documentación detallada de todos los endpoints
+  - **Archivos**:
+    - `src/Million_Fullstack.API/Program.cs`: Actualizar configuración Swagger
+    - `src/Million_Fullstack.API/Extensions/SwaggerExtensions.cs`: Extensiones Swagger
+    - `src/Million_Fullstack.API/Filters/SwaggerFileOperationFilter.cs`: Filtro para upload de archivos
+  - **Dependencias de Paso**: Paso 10
+  - **Instrucciones de Usuario**: Ninguna
+
+- [ ] Paso 12: Implementar middleware global de manejo de errores y logging
+  - **Tarea**: Crear middleware para manejo centralizado de excepciones, logging y respuestas de error estandarizadas
+  - **Archivos**:
+    - `src/Million_Fullstack.API/Middleware/ExceptionHandlingMiddleware.cs`: Middleware excepciones
+    - `src/Million_Fullstack.API/Models/ApiResponse.cs`: Modelo respuesta API
+    - `src/Million_Fullstack.API/Models/ErrorResponse.cs`: Modelo respuesta error
+    - `src/Million_Fullstack.API/Program.cs`: Actualizar configuración middleware
+  - **Dependencias de Paso**: Paso 11
+  - **Instrucciones de Usuario**: Ninguna
+
+## Validaciones y Pruebas
+- [ ] Paso 13: Implementar validaciones de datos
+  - **Tarea**: Crear validadores usando FluentValidation para todos los DTOs y modelos de entrada
+  - **Archivos**:
+    - `src/Million_Fullstack.Application/Validators/PropertyDtoValidator.cs`: Validador DTO propiedad
+    - `src/Million_Fullstack.Application/Validators/OwnerDtoValidator.cs`: Validador DTO propietario
+    - `src/Million_Fullstack.Application/Validators/PropertyFilterModelValidator.cs`: Validador filtros
+    - `src/Million_Fullstack.Application/Validators/UpdatePriceModelValidator.cs`: Validador actualización precio
+    - `src/Million_Fullstack.API/Filters/ValidationActionFilter.cs`: Filtro validación
+  - **Dependencias de Paso**: Paso 12
+  - **Instrucciones de Usuario**: Ninguna
+
+- [ ] Paso 14: Crear proyecto de pruebas unitarias y casos base
+  - **Tarea**: Configurar proyecto de pruebas con NUnit e implementar casos de prueba básicos para servicios y repositorios principales
+  - **Archivos**:
+    - `tests/Million_Fullstack.Tests.Unit/Million_Fullstack.Tests.Unit.csproj`: Proyecto pruebas
+    - `tests/Million_Fullstack.Tests.Unit/Services/PropertyServiceTests.cs`: Pruebas servicio propiedades
+    - `tests/Million_Fullstack.Tests.Unit/Repositories/PropertyRepositoryTests.cs`: Pruebas repositorio propiedades
+    - `tests/Million_Fullstack.Tests.Unit/Controllers/PropertiesControllerTests.cs`: Pruebas controlador
+    - `tests/Million_Fullstack.Tests.Unit/Helpers/TestDataHelper.cs`: Ayudante datos prueba
+  - **Dependencias de Paso**: Paso 13
+  - **Instrucciones de Usuario**: Ninguna
+
+## Finalización
+- [ ] Paso 15: Configuración final y optimizaciones
+  - **Tarea**: Realizar configuraciones finales, optimizaciones de rendimiento, verificar cumplimiento de especificaciones y preparar documentación README
+  - **Archivos**:
+    - `README.md`: Documentación del proyecto
+    - `src/Million_Fullstack.API/Program.cs`: Configuraciones finales
+    - `src/Million_Fullstack.API/appsettings.json`: Configuración completa
+    - `.gitignore`: Archivo gitignore apropiado
+    - `docker-compose.yml`: Configuración Docker para MongoDB (opcional)
+  - **Dependencias de Paso**: Paso 14
+  - **Instrucciones de Usuario**: Revisar configuración de MongoDB y ejecutar primera migración si es necesaria
+
+## Resumen del Enfoque
+
+Este plan implementa un backend completo para el sistema inmobiliario siguiendo Clean Architecture con .NET 8 y MongoDB. El enfoque prioriza:
+
+1. **Separación clara de responsabilidades** mediante las 4 capas de Clean Architecture
+2. **Desarrollo incremental** donde cada paso construye sobre el anterior
+3. **Optimización para MongoDB** con repositorios especializados y consultas eficientes
+4. **Cumplimiento exacto de especificaciones** sin agregar complejidad innecesaria
+5. **Mejores prácticas** incluyendo validaciones, manejo de errores, logging y pruebas
+
+El plan está diseñado para ser implementado secuencialmente por un sistema de generación de código, con cada paso siendo atómico y manejable. La arquitectura resultante será escalable, mantenible y preparada para integración futura con frontend ReactJS/Next.js.

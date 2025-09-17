@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Million_Fullstack.Domain/1.0.0": {
+        "runtime": {
+          "Million_Fullstack.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Million_Fullstack.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

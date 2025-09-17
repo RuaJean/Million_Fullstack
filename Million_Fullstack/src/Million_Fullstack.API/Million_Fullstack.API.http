@@ -1,0 +1,6 @@
+@Million_Fullstack.API_HostAddress = http://localhost:5298
+
+GET {{Million_Fullstack.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

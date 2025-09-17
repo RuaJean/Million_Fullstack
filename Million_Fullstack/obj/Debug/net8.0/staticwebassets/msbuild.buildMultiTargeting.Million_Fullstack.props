@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Million_Fullstack.props" />
+</Project>

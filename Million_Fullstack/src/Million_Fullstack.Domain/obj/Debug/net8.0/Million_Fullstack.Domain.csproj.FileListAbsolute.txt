@@ -1,0 +1,12 @@
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Domain/bin/Debug/net8.0/Million_Fullstack.Domain.deps.json
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Domain/bin/Debug/net8.0/Million_Fullstack.Domain.dll
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Domain/bin/Debug/net8.0/Million_Fullstack.Domain.pdb
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Domain/obj/Debug/net8.0/Million_Fullstack.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Domain/obj/Debug/net8.0/Million_Fullstack.Domain.AssemblyInfoInputs.cache
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Domain/obj/Debug/net8.0/Million_Fullstack.Domain.AssemblyInfo.cs
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Domain/obj/Debug/net8.0/Million_Fullstack.Domain.csproj.CoreCompileInputs.cache
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Domain/obj/Debug/net8.0/Million_Fullstack.Domain.sourcelink.json
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Domain/obj/Debug/net8.0/Million_Fullstack.Domain.dll
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Domain/obj/Debug/net8.0/refint/Million_Fullstack.Domain.dll
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Domain/obj/Debug/net8.0/Million_Fullstack.Domain.pdb
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Domain/obj/Debug/net8.0/ref/Million_Fullstack.Domain.dll

@@ -1,0 +1,16 @@
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Application/bin/Debug/net8.0/Million_Fullstack.Application.deps.json
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Application/bin/Debug/net8.0/Million_Fullstack.Application.dll
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Application/bin/Debug/net8.0/Million_Fullstack.Application.pdb
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Application/bin/Debug/net8.0/Million_Fullstack.Domain.dll
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Application/bin/Debug/net8.0/Million_Fullstack.Domain.pdb
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Application/obj/Debug/net8.0/Million_Fullstack.Application.csproj.AssemblyReference.cache
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Application/obj/Debug/net8.0/Million_Fullstack.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Application/obj/Debug/net8.0/Million_Fullstack.Application.AssemblyInfoInputs.cache
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Application/obj/Debug/net8.0/Million_Fullstack.Application.AssemblyInfo.cs
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Application/obj/Debug/net8.0/Million_Fullstack.Application.csproj.CoreCompileInputs.cache
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Application/obj/Debug/net8.0/Million_Fullstack.Application.sourcelink.json
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Application/obj/Debug/net8.0/Million_.BE0AE7E2.Up2Date
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Application/obj/Debug/net8.0/Million_Fullstack.Application.dll
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Application/obj/Debug/net8.0/refint/Million_Fullstack.Application.dll
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Application/obj/Debug/net8.0/Million_Fullstack.Application.pdb
+/Users/jeanrua/Documents/github-repos/Million_Fullstack/Million_Fullstack/src/Million_Fullstack.Application/obj/Debug/net8.0/ref/Million_Fullstack.Application.dll
